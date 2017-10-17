@@ -7,14 +7,21 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/script.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/ss?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet"> 
 </head>
 <body>
 	<div id="progress-wrp">
 	    <div class="progress-bar"></div>
 	    <div class="status">0%</div>
 	</div>
-	<h1><u>Website configureren</u></h1>
+	<h1>Website configureren</h1>
+	<div id="progress_switcher">
+		<div data-page="1"><h4>1</h4><p>Templates</p></div>
+		<div data-page="2"><h4>2</h4><p>Pagina's</p></div>
+		<div data-page="3"><h4>3</h4><p>Content</p></div>
+		<div data-page="4"><h4>4</h4><p>Veilig betalen</p></div>
+		<br class="clear">
+	</div>
 	<form>
 		<div class="page" data-page="1">
 			<h3>Kies een template</h3>
@@ -34,7 +41,7 @@
 		<div class="page" data-page="2">
 			<h3>Kies pagina's</h3>
 			<input type="text"><button type="button" id="addPage">Pagina toevoegen</button>
-			<div><input type="checkbox" name="page" id="Home"><label for="Home">Home</label></div>
+			<div><input type="checkbox" name="page" id="Home" checked><label for="Home">Home</label></div>
 			<div><input type="checkbox" name="page" id="Overons"><label for="Overons">Over ons</label></div>
 			<div><input type="checkbox" name="page" id="Diensten"><label for="Diensten">Diensten</label></div>
 			<div><input type="checkbox" name="page" id="Prijslijst"><label for="Prijslijst">Prijslijst</label></div>
@@ -45,6 +52,7 @@
 			<div><input type="checkbox" name="page" id="Vacatures"><label for="Vacatures">Vacatures</label></div>
 			<div><input type="checkbox" name="page" id="Blog"><label for="Blog">Blog</label></div>
 			<div><input type="checkbox" name="page" id="Contact"><label for="Contact">Contact</label></div>
+			<br class="clear">
 			<button type="button" class="pageSwitcher" data-page="1">Terug</button><button type="button" class="pageSwitcher" data-page="3" id="buttonToFiles">Verder</button>
 		</div>
 		<div class="page" data-page="3">
@@ -54,23 +62,28 @@
 			<p>&zwnj;</p>
 			<button type="button" class="pageSwitcher" data-page="2">Terug</button><button type="button" class="pageSwitcher" data-page="4">Verder</button>
 		</div>
-		<div class="page" data-page="4">
+<!-- 		<div class="page" data-page="4">
 			<h3>CheckCheckDubbelCheck</h3>
 			<p id="templateOverview">Template: geen template gekozen.</p>
 			<p id="pageOverview">Pagina's: geen pagina's gekozen.</p>
 			<button type="button" class="pageSwitcher" data-page="3">Terug</button><button type="button" class="pageSwitcher" data-page="5">Verder</button>
-		</div>
-		<div class="page" data-page="5">
-			<h3>Gegevens</h3>
-			<label for="voornaam">Voornaam:</label><input type="text" id="voornaam"><br>
-			<label for="tussenvoegsel">Tussenvoegsel:</label><input type="text" id="tussenvoegsel"><br>
-			<label for="achternaam">Achternaam:</label><input type="text" id="achternaam"><br>
-			<label for="email">E-mail:</label><input type="text" id="email"><br>
-			<button type="button" class="pageSwitcher" data-page="4">Terug</button><button type="button" class="pageSwitcher" data-page="6">Verder</button>
-		</div>
-		<div class="page" data-page="6">
-			<h3>Betalen</h3>
-			<button type="button" class="pageSwitcher" data-page="4">Terug</button><button type="button" class="pageSwitcher" data-page="6">Verder</button>
+		</div> -->
+		<div class="page" data-page="4">
+			<h3>Veilig betalen</h3>
+			<div>
+				<p>Voornaam:</p>
+				<p>Tussenvoegsel:</p>
+				<p>Achternaam:</p>
+				<p>E-mail:</p>
+			</div>
+			<div>
+				<input type="text" id="voornaam"><br>
+				<input type="text" id="tussenvoegsel"><br>
+				<input type="text" id="achternaam"><br>
+				<input type="text" id="email"><br>
+			</div>
+			<br class="clear">	
+			<button type="button" class="pageSwitcher" data-page="3">Terug</button><button type="button" class="pageSwitcher" data-page="5">Verder</button>
 		</div>
 	</form>
 </body>

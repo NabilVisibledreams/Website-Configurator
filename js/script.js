@@ -1,4 +1,4 @@
-var pages = [];
+var pages = ['Home'];
 
 $(window).ready(function(){
 	// Show first page
@@ -29,7 +29,7 @@ $(window).ready(function(){
 					// Check if user has hit max page numbers
 					if ($pageCounter < $allowedPages) {
 						// Add checkbox before switch page buttons
-						$('<div class="self"><input type="checkbox" checked name="page" id="' + $id + '"><label for="' + $id + '">' + $name + '</label><button type="button" id="' + $id + '">X</button></div>').insertBefore('form > div[data-page=2] > button:first-of-type');
+						$('<div class="self"><input type="checkbox" checked name="page" id="' + $id + '"><label for="' + $id + '">' + $name + '</label><button type="button" id="' + $id + '">X</button></div>').insertBefore('form > div[data-page=2] > button:nth-of-type(2)');
 						// Add one to page counter
 						$pageCounter++;
 					} else {
@@ -47,20 +47,34 @@ $(window).ready(function(){
 	// Trigger custom page function on addpage click
 	$("#addPage").click(function(){addPage($(this));});
 
-	// Switch page function
+	
 	$('button.pageSwitcher').click(function(){
-		// Hide all pages
-		$('form > div').each(function(){
-			$(this).hide();
-		});
-		// Show next page
-		$('form > div[data-page=' + $(this).attr('data-page') + ']').show();
-		// If next page is overview
-		if ($(this).attr('data-page') == 4) {
-			overviewUpdate();
-		}
+		switchPage($(this));
+	});
+	$('#progress_switcher > div').click(function(){
+		switchPage($(this));
 	});
 });
+
+// Switch page function
+function switchPage(el) {
+	// Hide all pages
+	$('form > div').each(function(){
+		$(this).hide();
+	});
+	// Make all progressswitchers grey
+	$('#progress_switcher > div').each(function(){
+		$(this).css('background-color', '#878787');
+	});
+	// Show next page
+	$('form > div[data-page=' + el.attr('data-page') + ']').show();
+	// Make current progressswitcher red
+	$('#progress_switcher > div:nth-of-type(' + el.attr('data-page') + ')').css('background-color', '#FF6161');
+	// If next page is overview
+	if ($(this).attr('data-page') == 4) {
+		overviewUpdate();
+	}
+}
 
 function overviewUpdate() {
 	$('#templateOverview').text('Template: ' + $('form > div[data-page=1] > div > input[name=template]').val());
