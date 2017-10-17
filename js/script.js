@@ -63,7 +63,7 @@ $(window).ready(function(){
 });
 
 function overviewUpdate() {
-	$('#templateOverview').text('Template: ' + $('form > div[data-page=1] > input[name=template]').val());
+	$('#templateOverview').text('Template: ' + $('form > div[data-page=1] > div > input[name=template]').val());
 	if (pages.length == 0) {
 		$('#pageOverview').text("Pagina's: geen pagina's gekozen");
 	} else {

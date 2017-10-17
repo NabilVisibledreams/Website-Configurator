@@ -2,20 +2,100 @@ html, body {
 	padding: 0;
 	margin: 0;
 	font-family: Avenir;
+    font-size: 16px;
 }
 input[type="radio"] {
 	display: none;
 }
+input[type="radio"] + label {
+    float: left;
+    width: 50%;
+}
+input[type="radio"] + label > img {
+    box-sizing: border-box;
+    width: 100%;
+}
 input[type="radio"]:checked + label > img {
-	border: 1px solid blue;
+	border: 1px solid #FF6161;
 }
 p {
 	margin: 0;
 }
+.clear {
+    clear: both;
+    display: block;  
+    content: "";
+    width: 100%;  
+}
 .page {
 	display: none;
 }
+h1 {
+    color: #FF6161;
+}
+h1, h3 {
+    margin: 1rem;
+}
+#contentFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+#contentFile + label {
+    color: white;
+    background-color: #FF6161;
+    padding: 1rem 1rem;
+    margin: 1rem;
+}
+#uploadContainer {
+    display: inline-block;
+}
+#templateContainer {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 800px;
+    display: inline-block;
+}
+#templateContainer + button {
+    display: block;
+}
+input[type=text] {
+    border-radius: 0;
+    border: 1px solid grey;
+    color: black;
+    padding: 1rem 1rem;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+input[type=text]:focus {
+    border-color: #FF6161;
+    outline: none;
+}
+button {
+    border-radius: 0;
+    border: 0;
+    background-color: #878787;
+    color: white;
+    padding: 1rem 2.5rem;
+    margin: 1rem;
+}
+button:hover {
+    background-color: #FF6161;
+}
+label {
+    color: black;
+}
+p {
+    margin-left: 1rem;
+    color: black;
+}
 
+.page[data-page='2'] > div {
+    margin-left: 1rem;
+}
 #progress-wrp {
     border: 1px solid #0099CC;
     padding: 1px;
